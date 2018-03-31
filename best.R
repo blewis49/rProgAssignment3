@@ -11,14 +11,21 @@ best <- function(state, outcome) {
       
       my_data <- read.csv("outcome-of-care-measures.csv", na.strings = "Not Available", stringsAsFactors = F)
       
+      #a vector to index the columns for the 3 specified outcomes in the larger dataframe
       outcomes <- c("heart attack" = 11, "heart failure" = 17, "pneumonia" = 23)
+      
+      #confirm the input state is a valid value
       if(!length(my_data$State[my_data$State == state] > 0)) stop("invalid state")
+      #confirm the outcome is a valid value
       if(!outcome %in% names(outcomes)) stop("invalid outcome")
       
+      #subset the data by state and outcome without NA values
       df <- my_data[, c(2, 7, outcomes[outcome])]
       df <- na.omit(df)
       names(df) <- c("hospital", "state", "outcome")
       df <- df[df$state == state,]
+      
+      #return the hospital name with the lowest mortality outcome value 
       df$hospital[df$outcome == min(df$outcome)]
 }
 

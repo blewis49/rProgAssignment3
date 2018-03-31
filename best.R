@@ -11,7 +11,7 @@ best <- function(state, outcome) {
       
       my_data <- read.csv("outcome-of-care-measures.csv", na.strings = "Not Available", stringsAsFactors = F)
       
-      #a vector to index the columns for the 3 specified outcomes in the larger dataframe
+      #a named numeric vector to index the columns for the 3 specified outcomes in the larger dataframe
       outcomes <- c("heart attack" = 11, "heart failure" = 17, "pneumonia" = 23)
       
       #confirm the input state is a valid value

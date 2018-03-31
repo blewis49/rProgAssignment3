@@ -5,6 +5,7 @@
 
 library(dplyr)
 
+# This function uses the outcome-of-care-measures.csv file included in the repo on github.com
 # The rankhospital.R function returns a character vector containing the hospital name from a specified
 # state that has the rank specified in the num argument and a specified outcome.
 
